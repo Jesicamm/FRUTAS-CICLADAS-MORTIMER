@@ -1,0 +1,39 @@
+.pantalla1{
+    display: flex;
+    flex-direction: column;
+    background-image: url(../img/super1.jpg);
+    height: 100%;
+    width: 100%;
+}
+.luchadores{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.luchador{
+    border: solid 0.5em brown;
+    height: 15em;
+    width: 11em;
+}
+.foto{
+    width: 100%;
+    height: 100%;
+}
+
+#mensaje{
+    width: 100%;
+    height: 18em;
+    font-size: 2em;
+    margin-top: 3em;
+    justify-content: center;
+    text-align: center; 
+    
+}
+
+.elegido{
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
+    height: 15em;
+    width: 11em;
+}
