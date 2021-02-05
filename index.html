@@ -8,16 +8,29 @@
 </head>
 <body>
 
-    <div class="pantalla1">
+    <div class="pantalla1" id="screen1" style="display: block;">
         <div class="luchadores">
             <div class="luchador" id="almendra" onclick="selectPersonaje('almendra')"><img class="foto" src="img/almendra.png"></div>
             <div class="luchador" id="anacardo" onclick="selectPersonaje('anacardo')"><img class="foto" src="img/anacardo.png"></div>
             <div class="luchador" id="cacahuete" onclick="selectPersonaje('cacahuete')"><img class="foto" src="img/cacahuete.png"></div>
             <div class="luchador" id="manzana" onclick="selectPersonaje('manzana')"><img class="foto" src="img/manzana.png"></div>
             <div class="luchador" id="piña" onclick="selectPersonaje('piña')"><img class="foto" src="img/piña.png"></div>
-            <div class="luchador" id="platano" onclick="selectPersonaje('platano')"><img class="foto" src="img/platano.jpg"></div>
+            <div class="luchador" id="platano" onclick="selectPersonaje('platano')"><img class="foto" src="img/platano.png"></div>
         </div>
         <div id="mensaje" class="mensaje"></div>
+    </div>
+
+    <div class="pantalla2" id="screen2" style ="display: none;">
+    
+        <div class="duelo">
+            <div id="jugador1"></div>
+            <div id="jugador2"></div>
+        </div>
+
+        <div class="botonPegar">
+            <div id="strike" class="attack" onclick="atacar()"><img class="botonazul" src="img/boton.png"></div>
+        </div>
+    
     </div>
 
     <script src="js/main.js"></script>
