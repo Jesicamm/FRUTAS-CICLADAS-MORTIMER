@@ -10,6 +10,10 @@
     flex-direction: row;
     justify-content: space-around;
 }
+body{
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
 
 .luchador{
     border: solid 0.5em rgb(62, 189, 194);

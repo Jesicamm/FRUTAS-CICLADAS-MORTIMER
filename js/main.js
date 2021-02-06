@@ -8,7 +8,7 @@
         this.fuerza = fuerza;
         this.defensa = defensa;
         this.suerte= suerte;
-        this.handicap = suerte - Math.floor(Math.random() * 5);
+        this.handicap = suerte - Math.floor(Math.random() * 2);
     };
 
     ataque(enemigo){
@@ -30,7 +30,7 @@ let player3 = new Luchador("cacahuete",200,50,30,8);
 
 let player4 = new Luchador("manzana",200,40,45,5);
 
-let player5 = new Luchador("piña",200,40,45,7);
+let player5 = new Luchador("piña",200,40,45,2);
 
 let player6 = new Luchador("platano",200,45,38,8); 
 
@@ -146,8 +146,13 @@ let atacar = () => {
             p2.ataque(p1);
 
         }
-        
     };
+
+    /* if (p1.vida == 0){
+        console.log(`El ganador es ${p2.nombre}`)
+    }else if (p2.vida == 0){
+        console.log(p2.nombre)
+    } */
  
     console.log(p1.nombre + p1.vida);
     console.log(p2.nombre + p2.vida); 
