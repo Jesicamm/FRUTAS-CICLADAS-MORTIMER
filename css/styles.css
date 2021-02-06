@@ -86,3 +86,27 @@ body{
     justify-content: center;
     text-align: center; 
 } 
+
+.pantalla0{
+    width: 100%;
+    height: 56em;
+    background-image: url(../img/iniciofoto.png);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo{
+    font-size: 5em;
+    color: rgb(21, 155, 43);
+    text-align: center;
+    -webkit-text-stroke: 4px black;
+}
+
+.buttonstart{
+    background-color: rgb(21, 155, 43);
+    border: 2px solid black;
+    height: 2.5em;
+    margin-top: 2em;
+}
