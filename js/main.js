@@ -75,16 +75,24 @@ let cambiaPantalla = (faseAhora,faseFutura) => {
     //aqui procedemos con el cambio
 
     pantallaActual.style.display = "none";
-    pantallaDestino.style.display = "block";
+    pantallaDestino.style.display = "flex";
 };
 
+// INICIO GAME - CAMBIO DE PANTALLA DE INICIO A PANTALLA DE ELECCION
+    let iniciar = () => {
+      resolveIn(1000).then(delay => {
+        let aparece = document.getElementById("morti");
+        aparece.style.display= "block";
+     })
+    resolveIn(4000).then(delay => {
+
+        cambiaPantalla("screen0","screen1");
+        
+         });
+    }
 
 // SELECCION PERSONAJES, EQUIPO A Y B Y MENSAJE DE CONFIRMACION DE ELECCION
 let selectPersonaje = (personaje) => {
-
-    document.getElementById(personaje).className = "elegido";
-    document.getElementById(personaje).onclick = ""; 
-
   
     if (p1 ==  "") {
         p1 = allplayers[personaje]; 
@@ -99,7 +107,7 @@ let selectPersonaje = (personaje) => {
     
    // mensaje con equipoA y sus jugadores y equipoB y sus jugadores y escoger jugador duelos random en grupos de dos
         let mensaje = document.getElementById("mensaje");
-        mensaje.innerHTML = `Player1 is : ${p1.nombre} <br> & <br> Player2 is : ${p2.nombre}`;
+        mensaje.innerHTML = `Player1 is : ${p1.nombre} <br><br>&<br><br> Player2 is : ${p2.nombre}`;
         console.log("Player1 " + p1);   
         console.log("Player2 "  + p2);   
     
@@ -108,7 +116,7 @@ let selectPersonaje = (personaje) => {
 
      let showPlayer1 = document.getElementById("jugador1");
      let showPlayer2 = document.getElementById("jugador2");
-
+     
      showPlayer1.innerHTML = `<div><img class="estiloContricante1" src="img/${p1.nombre}.png"></div>`;
      showPlayer2.innerHTML = `<div><img class="estiloContrincante2" src="img/${p2.nombre}.png"></div>`;
 
@@ -147,16 +155,15 @@ let atacar = () => {
 
         }
     };
-
-    /* if (p1.vida == 0){
-        console.log(`El ganador es ${p2.nombre}`)
-    }else if (p2.vida == 0){
-        console.log(p2.nombre)
-    } */
- 
     console.log(p1.nombre + p1.vida);
     console.log(p2.nombre + p2.vida); 
     
+     if (p1.vida == 0){
+        console.log(`El ganador es ${p2.nombre}`)
+    }else if (p2.vida == 0){
+        console.log(`El ganador es ${p1.nombre}`)
+    } 
+
 };
 //Declaracion de inicio del juego
 console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
