@@ -75,7 +75,7 @@ let cambiaPantalla = (faseAhora,faseFutura) => {
     //aqui procedemos con el cambio
 
     pantallaActual.style.display = "none";
-    pantallaDestino.style.display = "flex";
+    pantallaDestino.style.display = "block";
 };
 
 // INICIO GAME - CAMBIO DE PANTALLA DE INICIO A PANTALLA DE ELECCION
@@ -84,7 +84,7 @@ let cambiaPantalla = (faseAhora,faseFutura) => {
         let aparece = document.getElementById("morti");
         aparece.style.display= "block";
      })
-    resolveIn(4000).then(delay => {
+    resolveIn(3000).then(delay => {
 
         cambiaPantalla("screen0","screen1");
         
@@ -108,8 +108,8 @@ let selectPersonaje = (personaje) => {
    // mensaje con equipoA y sus jugadores y equipoB y sus jugadores y escoger jugador duelos random en grupos de dos
         let mensaje = document.getElementById("mensaje");
         mensaje.innerHTML = `Player1 is : ${p1.nombre} <br><br>&<br><br> Player2 is : ${p2.nombre}`;
-        console.log("Player1 " + p1);   
-        console.log("Player2 "  + p2);   
+        console.log("Player1 " + p1.nombre);   
+        console.log("Player2 "  + p2.nombre);   
     
     
      //Cargo los personajes en screen2
@@ -120,7 +120,6 @@ let selectPersonaje = (personaje) => {
      showPlayer1.innerHTML = `<div><img class="estiloContricante1" src="img/${p1.nombre}.png"></div>`;
      showPlayer2.innerHTML = `<div><img class="estiloContrincante2" src="img/${p2.nombre}.png"></div>`;
 
-     console.log(showPlayer1.innerHTML);
      //Asignaría los luchadores... 
 
      console.log(p1);
@@ -138,6 +137,8 @@ let atacar = () => {
     let turno = Math.floor(Math.random() * 2);
     let especial = Math.floor(Math.random() * 5);
 
+    
+
     if(turno == 0){
         if(especial == 3){
             console.log("ATAQUE ESPECIAL");
@@ -154,15 +155,24 @@ let atacar = () => {
             p2.ataque(p1);
 
         }
+         
     };
-    console.log(p1.nombre + p1.vida);
-    console.log(p2.nombre + p2.vida); 
-    
-     if (p1.vida == 0){
-        console.log(`El ganador es ${p2.nombre}`)
-    }else if (p2.vida == 0){
-        console.log(`El ganador es ${p1.nombre}`)
-    } 
+
+    //MENSAJE GANADOR
+    let mensajeduelo = document.getElementById("mensajeduelo");
+        
+        if (p1.vida == 0){
+            console.log(`El ganador es ${p2.nombre}`)
+            mensajeduelo.innerHTML = `El ganador es ${p2.nombre}`;
+        }else if (p2.vida == 0){
+            console.log(`El ganador es ${p1.nombre}`)
+            mensajeduelo.innerHTML = `El ganador es ${p1.nombre}`;
+        } 
+    //MENSAJE BATALLA
+    let mensajebatalla = document.getElementById("mensajebatalla");
+    mensajebatalla.innerHTML = `${p1.nombre} ${p1.vida} ${p2.nombre} ${p2.vida}`
+        console.log(p1.nombre + p1.vida);
+        console.log(p2.nombre + p2.vida); 
 
 };
 //Declaracion de inicio del juego
