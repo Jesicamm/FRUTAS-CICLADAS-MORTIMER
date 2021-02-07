@@ -8,7 +8,7 @@ class Luchador {
         this.fuerza = fuerza;
         this.defensa = defensa;
         this.suerte= suerte;
-        this.handicap = suerte - Math.floor(Math.random() * 2);
+        this.handicap = suerte - Math.floor(Math.random() * 5);
     };
 
     ataque(enemigo){
@@ -160,7 +160,7 @@ let atacar = () => {
     };
     //MENSAJE BATALLA
     let mensajebatalla = document.getElementById("mensajebatalla");
-    mensajebatalla.innerHTML = `${p1.nombre} ${p1.vida} ${p2.nombre} ${p2.vida}`
+    mensajebatalla.innerHTML = `${p1.nombre} ${p1.vida} <br>${p2.nombre} ${p2.vida}`
     console.log(p1.nombre + p1.vida);
     console.log(p2.nombre + p2.vida); 
     //MENSAJE GANADOR
@@ -170,11 +170,20 @@ let atacar = () => {
         console.log(`El ganador es ${p2.nombre}`)
         mensajeduelo.innerHTML = `El ganador es ${p2.nombre}`;
         document.getElementById("strike").onclick = ""; 
+       resolveIn(1000).then(delay => {
+        let reiniciar = document.getElementById("reinicio");
+        reiniciar.style.display= "block";
+     })
     }
     if (p2.vida <= 0){
         console.log(`El ganador es ${p1.nombre}`)
         mensajeduelo.innerHTML = `El ganador es ${p1.nombre}`;
         document.getElementById("strike").onclick = ""; 
+        resolveIn(1000).then(delay => {
+            let reiniciar = document.getElementById("reinicio");
+            reiniciar.style.display= "block";
+         })
+        
     } 
    
 };

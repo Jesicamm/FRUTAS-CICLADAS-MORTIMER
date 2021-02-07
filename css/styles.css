@@ -13,7 +13,7 @@
 }
 body{
     font-family: 'Press Start 2P', cursive;
-    background-color: gray;
+    background-color: rgb(206, 73, 144);
     color: white;
     padding: 0;
 }
@@ -151,4 +151,10 @@ body{
     -webkit-text-stroke: 2px black;
     position: relative;
     margin-left: 30em;
+}
+.buttonreinicio{
+    background-color: rgb(21, 155, 43);
+    border: 2px solid black;
+    height: 2.5em;
+    margin-top: 1em;
 }
