@@ -22,15 +22,15 @@ class Luchador {
 
 //Instancias y variables globales
 //nombre,vida,fuerza,defensa,suerte
-let player1 = new Luchador("almendra",200,30,50,7);
+let player1 = new Luchador("almendra",200,80,50,7);
 
 let player2 = new Luchador("anacardo",200,60,20,6);
 
 let player3 = new Luchador("cacahuete",200,70,30,8);
 
-let player4 = new Luchador("manzana",200,40,65,5);
+let player4 = new Luchador("manzana",200,60,60,5);
 
-let player5 = new Luchador("piña",200,60,45,4);
+let player5 = new Luchador("piña",200,70,45,4);
 
 let player6 = new Luchador("platano",200,85,38,8); 
 
@@ -48,20 +48,6 @@ let allplayers = {
     "platano": player6
 };
 
-//Funciones 
-
-let inicioGame = () => {
-
-    let vidaInicial = 200;
-    
-    player1.vida = vidaInicial;
-    player2.vida = vidaInicial;
-
-    p1 = "";
-    p2 = "";
-};
- 
-
 //funcion de delay...
 
 const resolveIn = delay =>
@@ -72,26 +58,26 @@ let cambiaPantalla = (faseAhora,faseFutura) => {
 
     let pantallaDestino = document.getElementById(faseFutura);
 
-    //aqui procedemos con el cambio
+    //cambiamos visibiidad pantallas
 
     pantallaActual.style.display = "none";
     pantallaDestino.style.display = "block";
 };
 
-// INICIO GAME - CAMBIO DE PANTALLA DE INICIO A PANTALLA DE ELECCION
+// INICIO GAME - aparicion del div "mortimers" y cambio de pantalla 0 a pantalla1
     let iniciar = () => {
       resolveIn(1000).then(delay => {
         let aparece = document.getElementById("morti");
         aparece.style.display= "block";
-     })
+     });
     resolveIn(2000).then(delay => {
 
         cambiaPantalla("screen0","screen1");
         
          });
-    }
+    };
 
-// SELECCION PERSONAJES, EQUIPO A Y B Y MENSAJE DE CONFIRMACION DE ELECCION
+// SELECCION PERSONAJES, PLAYER1 PLAYER2 Y MENSAJE DE CONFIRMACION DE ELECCION Y CAMBIO DE PANTALLA A PANTALLA2
 let selectPersonaje = (personaje) => {
   
     if (p1 ==  "") {
@@ -103,42 +89,33 @@ let selectPersonaje = (personaje) => {
         p2 = allplayers[personaje]
         document.getElementById(personaje).className = "elegido";
         document.getElementById(personaje).onclick = ""; 
-        
         document.getElementById("fighters").onclick="";
     
-    
-   // mensaje con equipoA y sus jugadores y equipoB y sus jugadores y escoger jugador duelos random en grupos de dos
         let mensaje = document.getElementById("mensaje");
         mensaje.innerHTML = `Player1 is : ${p1.nombre} <br><br>&<br><br> Player2 is : ${p2.nombre}`;
         console.log("Player1 " + p1.nombre);   
         console.log("Player2 "  + p2.nombre);   
     
      //Cargo los personajes en screen2
-
-     let showPlayer1 = document.getElementById("jugador1");
-     let showPlayer2 = document.getElementById("jugador2");
-     
-     showPlayer1.innerHTML = `<div><img class="estiloContricante1" src="img/${p1.nombre}.png"></div>`;
-     showPlayer2.innerHTML = `<div><img class="estiloContrincante2" src="img/${p2.nombre}.png"></div>`;
-
-     //Asignaría los luchadores... 
-
-     console.log(p1);
-     console.log(p2);
-     resolveIn(1000).then(delay => {
-
-        cambiaPantalla("screen1","screen2");
+        let showPlayer1 = document.getElementById("jugador1");
+        let showPlayer2 = document.getElementById("jugador2");
         
-         });
-    }
-}
+        showPlayer1.innerHTML = `<div><img class="estiloContricante1" src="img/${p1.nombre}.png"></div>`;
+        showPlayer2.innerHTML = `<div><img class="estiloContrincante2" src="img/${p2.nombre}.png"></div>`;
+
+        resolveIn(1000).then(delay => {
+
+            cambiaPantalla("screen1","screen2");
+            
+            });
+    };
+};
+//Funcion de ataque;
 
 let atacar = () => {
-    //Funcion de ataque;
+    
     let turno = Math.floor(Math.random() * 2);
     let especial = Math.floor(Math.random() * 5);
-
-    
 
     if(turno == 0){
         if(especial == 3){
@@ -155,14 +132,12 @@ let atacar = () => {
         }else{
             p2.ataque(p1);
 
-        }
+        };
          
     };
     //MENSAJE BATALLA
     let mensajebatalla = document.getElementById("mensajebatalla");
     mensajebatalla.innerHTML = `${p1.nombre} ${p1.vida} <br>${p2.nombre} ${p2.vida}`
-    console.log(p1.nombre + p1.vida);
-    console.log(p2.nombre + p2.vida); 
     //MENSAJE GANADOR
     let mensajeduelo = document.getElementById("mensajeduelo");
         
@@ -173,8 +148,8 @@ let atacar = () => {
        resolveIn(1000).then(delay => {
         let reiniciar = document.getElementById("reinicio");
         reiniciar.style.display= "block";        
-     })
-    }
+     });
+    };
     if (p2.vida <= 0){
         console.log(`El ganador es ${p1.nombre}`)
         mensajeduelo.innerHTML = `El ganador es ${p1.nombre}`;
@@ -182,12 +157,8 @@ let atacar = () => {
         resolveIn(1000).then(delay => {
             let reiniciar = document.getElementById("reinicio");
             reiniciar.style.display= "block";
-         })
-        
-    } 
-   
+         });  
+    }; 
 };
-//Declaracion de inicio del juego
-console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
-console.log("Iniciamos el juego y la vida del player 2 es...." + player2.vida);
+
 
