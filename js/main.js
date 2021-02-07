@@ -1,6 +1,6 @@
 
 //clases
-  class Luchador {
+class Luchador {
 
     constructor(nombre,vida,fuerza,defensa,suerte){
         this.nombre = nombre;
@@ -22,17 +22,17 @@
 
 //Instancias y variables globales
 //nombre,vida,fuerza,defensa,suerte
-let player1 = new Luchador("almendra",200,50,30,7);
+let player1 = new Luchador("almendra",200,30,50,7);
 
-let player2 = new Luchador("anacardo",200,50,30,6);
+let player2 = new Luchador("anacardo",200,60,20,6);
 
-let player3 = new Luchador("cacahuete",200,50,30,8);
+let player3 = new Luchador("cacahuete",200,70,30,8);
 
-let player4 = new Luchador("manzana",200,40,45,5);
+let player4 = new Luchador("manzana",200,40,65,5);
 
-let player5 = new Luchador("piña",200,40,45,2);
+let player5 = new Luchador("piña",200,60,45,4);
 
-let player6 = new Luchador("platano",200,45,38,8); 
+let player6 = new Luchador("platano",200,85,38,8); 
 
 let p1 = "";
 
@@ -99,18 +99,19 @@ let selectPersonaje = (personaje) => {
         
         document.getElementById(personaje).className = "elegido";
         document.getElementById(personaje).onclick = ""; 
-    } else { 
+    } else if (p2 == "") { 
         p2 = allplayers[personaje]
         document.getElementById(personaje).className = "elegido";
         document.getElementById(personaje).onclick = ""; 
-
+        
+        document.getElementById("fighters").onclick="";
+    
     
    // mensaje con equipoA y sus jugadores y equipoB y sus jugadores y escoger jugador duelos random en grupos de dos
         let mensaje = document.getElementById("mensaje");
         mensaje.innerHTML = `Player1 is : ${p1.nombre} <br><br>&<br><br> Player2 is : ${p2.nombre}`;
         console.log("Player1 " + p1.nombre);   
         console.log("Player2 "  + p2.nombre);   
-    
     
      //Cargo los personajes en screen2
 
@@ -157,23 +158,25 @@ let atacar = () => {
         }
          
     };
-
-    //MENSAJE GANADOR
-    let mensajeduelo = document.getElementById("mensajeduelo");
-        
-        if (p1.vida == 0){
-            console.log(`El ganador es ${p2.nombre}`)
-            mensajeduelo.innerHTML = `El ganador es ${p2.nombre}`;
-        }else if (p2.vida == 0){
-            console.log(`El ganador es ${p1.nombre}`)
-            mensajeduelo.innerHTML = `El ganador es ${p1.nombre}`;
-        } 
     //MENSAJE BATALLA
     let mensajebatalla = document.getElementById("mensajebatalla");
     mensajebatalla.innerHTML = `${p1.nombre} ${p1.vida} ${p2.nombre} ${p2.vida}`
-        console.log(p1.nombre + p1.vida);
-        console.log(p2.nombre + p2.vida); 
-
+    console.log(p1.nombre + p1.vida);
+    console.log(p2.nombre + p2.vida); 
+    //MENSAJE GANADOR
+    let mensajeduelo = document.getElementById("mensajeduelo");
+        
+    if (p1.vida <= 0){ 
+        console.log(`El ganador es ${p2.nombre}`)
+        mensajeduelo.innerHTML = `El ganador es ${p2.nombre}`;
+        document.getElementById("strike").onclick = ""; 
+    }
+    if (p2.vida <= 0){
+        console.log(`El ganador es ${p1.nombre}`)
+        mensajeduelo.innerHTML = `El ganador es ${p1.nombre}`;
+        document.getElementById("strike").onclick = ""; 
+    } 
+   
 };
 //Declaracion de inicio del juego
 console.log("Iniciamos el juego y la vida del player 1 es...." + player1.vida);
