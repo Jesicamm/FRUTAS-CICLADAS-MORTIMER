@@ -20,3 +20,6 @@ Cada uno de los jugadores cuenta con un nombre, vida, fuerza, defensa...que irá
 * Funciones de cambio de pantalla
 * Función de atacar con turnos random entre jugadores
 
+## Enlace GitHub Pages
+* https://jesicamm.github.io/FRUTAS-CICLADAS-MORTIMER/.
+
