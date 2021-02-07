@@ -6,11 +6,13 @@
     height: 100%;
     width: 100%;
 }
+
 .luchadores{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+
 body{
     font-family: 'Press Start 2P', cursive;
     background-color: rgb(206, 73, 144);
@@ -23,6 +25,7 @@ body{
     height: 15em;
     width: 11em;
 }
+
 .foto{
     width: 100%;
     height: 100%;
@@ -65,6 +68,7 @@ body{
     height: 18em;
     width: 13em;
 } 
+
 .estiloContricante1 {
     height: 18em;
     width: 13em;
@@ -84,6 +88,7 @@ body{
     display: flex;
     flex-direction: column;
 }
+
  .botonPegar{
     width: 100%;
     height: 5em;
@@ -122,6 +127,7 @@ body{
     height: 2.5em;
     margin-top: 1em;
 }
+
 .mensajeduelo{
     width: 25em;
     height: 1.1em;
@@ -131,9 +137,7 @@ body{
     text-align: center; 
     position: relative;
     margin-left: 6em;
-    -webkit-text-stroke: 2px black;
-  
-   
+    -webkit-text-stroke: 2px black;   
 }
 
 .mensajebatalla{
@@ -151,6 +155,7 @@ body{
     position: relative;
     margin-left: 30em;
 }
+
 .buttonreinicio{
     background-color: rgb(68, 176, 209);
     border: 2px solid black;
@@ -158,5 +163,4 @@ body{
     margin-top: 1em;
     margin-left: 65em;
     position: relative;
-
 }
