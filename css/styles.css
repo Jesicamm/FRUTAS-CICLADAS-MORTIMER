@@ -117,7 +117,7 @@ body{
 }
 
 .buttonstart{
-    background-color: rgb(21, 155, 43);
+    background-color: rgb(68, 176, 209);
     border: 2px solid black;
     height: 2.5em;
     margin-top: 1em;
@@ -125,13 +125,12 @@ body{
 .mensajeduelo{
     width: 25em;
     height: 1.1em;
-    font-size: 2em;
+    font-size: 3em;
     color: aqua;
-    background-color: white;
     margin-top: 1em;
     text-align: center; 
     position: relative;
-    margin-left: 16em;
+    margin-left: 6em;
     -webkit-text-stroke: 2px black;
   
    
@@ -153,8 +152,11 @@ body{
     margin-left: 30em;
 }
 .buttonreinicio{
-    background-color: rgb(21, 155, 43);
+    background-color: rgb(68, 176, 209);
     border: 2px solid black;
     height: 2.5em;
     margin-top: 1em;
+    margin-left: 65em;
+    position: relative;
+
 }

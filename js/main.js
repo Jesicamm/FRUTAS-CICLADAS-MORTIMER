@@ -84,7 +84,7 @@ let cambiaPantalla = (faseAhora,faseFutura) => {
         let aparece = document.getElementById("morti");
         aparece.style.display= "block";
      })
-    resolveIn(3000).then(delay => {
+    resolveIn(2000).then(delay => {
 
         cambiaPantalla("screen0","screen1");
         
@@ -172,7 +172,7 @@ let atacar = () => {
         document.getElementById("strike").onclick = ""; 
        resolveIn(1000).then(delay => {
         let reiniciar = document.getElementById("reinicio");
-        reiniciar.style.display= "block";
+        reiniciar.style.display= "block";        
      })
     }
     if (p2.vida <= 0){
